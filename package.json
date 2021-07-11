@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "vite",
+    "start": "run-p dev re:start",
     "build": "run-s re:build vi:build",
+    "re:start": "rescript build -w",
     "re:build": "rescript build -with-deps",
     "vi:build": "vite build",
     "serve": "vite serve"
