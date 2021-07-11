@@ -1,6 +1,7 @@
 @react.component
-let make = (~operation) => {
+let make = (~operation, ~send) => {
   open Operation
+  open States
 
   let className = switch operation {
   | Clear => "bg-yellow-500"
@@ -9,5 +10,5 @@ let make = (~operation) => {
   | _ => "bg-yellow-200"
   }
 
-  <Button text={operation->toString} className />
+  <Button text={operation->toString} className onClick={_ => send(OperationPressed(operation))} />
 }
