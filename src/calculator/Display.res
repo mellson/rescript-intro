@@ -1,4 +1,4 @@
-open States
+open CalculatorMachine
 
 let stateToString = state => {
   switch state {
@@ -10,7 +10,7 @@ let stateToString = state => {
 @react.component
 let make = (~state) => {
   <div
-    className="col-span-5 text-2xl font-black shadow-sm text-right text-white bg-indigo-900 p-4 rounded">
+    className="bg-opacity-75 col-span-5 text-2xl font-black shadow text-right text-white bg-indigo-900 p-4 mb-2 rounded">
     {React.string(state->stateToString)}
   </div>
 }

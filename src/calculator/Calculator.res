@@ -1,9 +1,9 @@
 @react.component
 let make = () => {
+  let (state, send) = CalculatorMachine.use()
+
   open Digit
   open Operation
-
-  let (state, send) = Machine.use(States.Zero, States.handleEvent)
 
   <div
     className="p-4 grid grid-cols-5 gap-2 rounded shadow bg-gradient-to-br from-indigo-400 to-pink-400 animate-gradient">

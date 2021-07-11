@@ -38,3 +38,5 @@ let handleEvent = (currentState, event) =>
       }
     }
   }
+
+let use = () => Machine.use(Zero, handleEvent)

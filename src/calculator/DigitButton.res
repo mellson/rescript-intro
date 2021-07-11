@@ -1,7 +1,7 @@
 @react.component
 let make = (~digit, ~send) => {
   open Digit
-  open States
+  open CalculatorMachine
 
   let className = switch digit {
   | ZeroDigit => "bg-white col-span-2"

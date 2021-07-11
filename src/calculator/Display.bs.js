@@ -13,7 +13,7 @@ function stateToString(state) {
 function Display(Props) {
   var state = Props.state;
   return React.createElement("div", {
-              className: "col-span-5 text-2xl font-black shadow-sm text-right text-white bg-indigo-900 p-4 rounded"
+              className: "bg-opacity-75 col-span-5 text-2xl font-black shadow text-right text-white bg-indigo-900 p-4 mb-2 rounded"
             }, stateToString(state));
 }
 

@@ -1,7 +1,7 @@
 @react.component
 let make = (~operation, ~send) => {
   open Operation
-  open States
+  open CalculatorMachine
 
   let className = switch operation {
   | Clear => "bg-yellow-500"
