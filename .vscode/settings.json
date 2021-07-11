@@ -1,0 +1,7 @@
+{
+  "files.exclude": {
+    "**/*.bs.js": true,
+    "dist": true,
+    "lib": true
+  }
+}

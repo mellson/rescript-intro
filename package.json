@@ -1,0 +1,25 @@
+{
+  "name": "@komplio/react-app",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "run-s re:build vi:build",
+    "re:build": "rescript build -with-deps",
+    "vi:build": "vite build",
+    "serve": "vite serve"
+  },
+  "dependencies": {
+    "@rescript/react": "^0.10.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react-refresh": "^1.3.5",
+    "autoprefixer": "^10.3.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.5",
+    "rescript": "^9.1.4",
+    "tailwindcss": "^2.2.4",
+    "vite": "^2.4.1"
+  }
+}

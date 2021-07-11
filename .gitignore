@@ -1,0 +1,21 @@
+# ReScript
+lib
+.merlin
+.bsb.lock
+
+# vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Vite
+dist
+
+# npm
+node_modules
+
+# macOS
+.DS_Store

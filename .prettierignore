@@ -1,0 +1,3 @@
+build
+*.bs.js
+*.gen.ts*

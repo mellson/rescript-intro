@@ -1,0 +1,55 @@
+<svg
+    width="161px"
+    height="161px"
+    viewBox="0 0 161 161"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+  >
+    <style>
+      .blue {
+        fill: #93b6bc;
+      }
+      .blue-dark {
+        fill: #334254;
+      }
+      .orange {
+        fill: #d9613a;
+      }
+      .pink {
+        fill: #ff8cb1;
+      }
+      .red {
+        fill: #fe2222;
+      }
+      @media (prefers-color-scheme: dark) {
+        .blue-dark {
+          fill: #ff8cb1;
+        }
+        .pink {
+          fill: #334254;
+        }
+      }
+    </style>
+
+    <polygon
+      class="blue"
+      points="161.1251 0.032 104.1151 0 40.3351 63.78 68.8551 92.301"
+    />
+    <polygon
+      class="pink"
+      points="0.0001 80.487 0.0001 104.114 11.8131 92.301"
+    />
+    <polygon
+      class="orange"
+      points="0.0001 104.1145 0.0001 161.1565 40.3351 120.8215 11.8131 92.3015"
+    />
+    <polygon
+      class="blue-dark"
+      points="40.335 120.8215 80.323 161.0715 137.364 161.0715 68.856 92.3005"
+    />
+    <polygon
+      class="red"
+      points="40.335 63.78 0 23.446 0 80.487 11.814 92.301"
+    />
+  </svg>
