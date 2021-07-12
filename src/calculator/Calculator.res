@@ -22,7 +22,7 @@ let make = () => {
     <DigitButton digit=Digit(3) send />
     <OperationButton operation=Multiply send />
     <OperationButton operation=Equals send />
-    <DigitButton digit=ZeroDigit send />
+    <DigitButton digit=Zero send />
     <DigitButton digit=Dot send />
     <OperationButton operation=Subtract send />
   </div>

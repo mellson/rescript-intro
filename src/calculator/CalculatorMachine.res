@@ -1,6 +1,6 @@
 type state =
-  | Zero
-  | AccumulateDigits(string)
+  | Initial
+  | Typing(string)
 
 type events =
   | DigitPressed(Digit.t)
@@ -8,35 +8,35 @@ type events =
 
 let handleEvent = (currentState, event) =>
   switch currentState {
-  | Zero =>
+  | Initial =>
     switch event {
     | DigitPressed(digit) =>
       switch digit {
-      | ZeroDigit => currentState
-      | Digit(value) => AccumulateDigits(value->Int.toString)
-      | Dot => AccumulateDigits("0.")
+      | Zero => currentState
+      | Digit(value) => Typing(value->Int.toString)
+      | Dot => Typing("0.")
       }
     | _ => currentState
     }
-  | AccumulateDigits(digits) =>
+  | Typing(digits) =>
     switch event {
     | DigitPressed(digit) =>
       switch digit {
-      | ZeroDigit => currentState
-      | Digit(value) => AccumulateDigits(digits ++ value->Int.toString)
+      | Zero => Typing(digits ++ "0")
+      | Digit(value) => Typing(digits ++ value->Int.toString)
       | Dot =>
         if digits->Js.String2.includes(".") {
           currentState
         } else {
-          AccumulateDigits(digits ++ ".")
+          Typing(digits ++ ".")
         }
       }
     | OperationPressed(operation) =>
       switch operation {
-      | Clear => Zero
+      | Clear => Initial
       | _ => currentState
       }
     }
   }
 
-let use = () => Machine.use(Zero, handleEvent)
+let use = () => Machine.use(Initial, handleEvent)

@@ -4,7 +4,7 @@ let make = (~digit, ~send) => {
   open CalculatorMachine
 
   let className = switch digit {
-  | ZeroDigit => "bg-white col-span-2"
+  | Zero => "bg-white col-span-2"
   | _ => "bg-white"
   }
 

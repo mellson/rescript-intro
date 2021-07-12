@@ -2,8 +2,8 @@ open CalculatorMachine
 
 let stateToString = state => {
   switch state {
-  | Zero => "0"
-  | AccumulateDigits(digits) => digits
+  | Initial => "0"
+  | Typing(digits) => digits
   }
 }
 

@@ -9,20 +9,26 @@ function handleEvent(currentState, $$event) {
       if ($$event._0 !== 0) {
         return currentState;
       } else {
-        return /* Zero */0;
+        return /* Initial */0;
       }
     }
     var digit = $$event._0;
     if (typeof digit === "number") {
-      if (digit !== 0 && !digits.includes(".")) {
-        return /* AccumulateDigits */{
-                _0: digits + "."
-              };
+      if (digit !== 0) {
+        if (digits.includes(".")) {
+          return currentState;
+        } else {
+          return /* Typing */{
+                  _0: digits + "."
+                };
+        }
       } else {
-        return currentState;
+        return /* Typing */{
+                _0: digits + "0"
+              };
       }
     } else {
-      return /* AccumulateDigits */{
+      return /* Typing */{
               _0: digits + String(digit._0)
             };
     }
@@ -33,21 +39,21 @@ function handleEvent(currentState, $$event) {
   var digit$1 = $$event._0;
   if (typeof digit$1 === "number") {
     if (digit$1 !== 0) {
-      return /* AccumulateDigits */{
+      return /* Typing */{
               _0: "0."
             };
     } else {
       return currentState;
     }
   } else {
-    return /* AccumulateDigits */{
+    return /* Typing */{
             _0: String(digit$1._0)
           };
   }
 }
 
 function use(param) {
-  return Machine$RescriptIntro.use(/* Zero */0, handleEvent);
+  return Machine$RescriptIntro.use(/* Initial */0, handleEvent);
 }
 
 export {

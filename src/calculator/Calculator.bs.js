@@ -74,7 +74,7 @@ function Calculator(Props) {
                   operation: /* Equals */5,
                   send: send
                 }), React.createElement(DigitButton$RescriptIntro.make, {
-                  digit: /* ZeroDigit */0,
+                  digit: /* Zero */0,
                   send: send
                 }), React.createElement(DigitButton$RescriptIntro.make, {
                   digit: /* Dot */1,
