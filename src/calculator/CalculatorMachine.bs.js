@@ -2,53 +2,218 @@
 
 import * as Machine$RescriptIntro from "../Machine.bs.js";
 
-function handleEvent(currentState, $$event) {
-  if (currentState) {
-    var digits = currentState._0;
+function calculate(a, operation, b) {
+  var firstFloat = Number(a);
+  var secondFloat = Number(b);
+  var tmp;
+  switch (operation) {
+    case /* Divide */1 :
+        tmp = firstFloat / secondFloat;
+        break;
+    case /* Multiply */2 :
+        tmp = firstFloat * secondFloat;
+        break;
+    case /* Add */3 :
+        tmp = firstFloat + secondFloat;
+        break;
+    case /* Subtract */4 :
+        tmp = firstFloat - secondFloat;
+        break;
+    case /* Clear */0 :
+    case /* Equals */5 :
+        tmp = secondFloat;
+        break;
+    
+  }
+  return String(tmp);
+}
+
+function handleEvent(state, $$event) {
+  if (typeof state === "number") {
     if ($$event.TAG !== /* DigitPressed */0) {
-      if ($$event._0 !== 0) {
-        return currentState;
-      } else {
-        return /* Initial */0;
-      }
+      return state;
     }
     var digit = $$event._0;
     if (typeof digit === "number") {
       if (digit !== 0) {
-        if (digits.includes(".")) {
-          return currentState;
-        } else {
-          return /* Typing */{
-                  _0: digits + "."
-                };
-        }
-      } else {
-        return /* Typing */{
-                _0: digits + "0"
+        return {
+                TAG: /* Typing */0,
+                _0: "0."
               };
+      } else {
+        return state;
       }
     } else {
-      return /* Typing */{
-              _0: digits + String(digit._0)
+      return {
+              TAG: /* Typing */0,
+              _0: String(digit._0)
             };
     }
   }
-  if ($$event.TAG !== /* DigitPressed */0) {
-    return currentState;
-  }
-  var digit$1 = $$event._0;
-  if (typeof digit$1 === "number") {
-    if (digit$1 !== 0) {
-      return /* Typing */{
-              _0: "0."
-            };
-    } else {
-      return currentState;
-    }
-  } else {
-    return /* Typing */{
-            _0: String(digit$1._0)
-          };
+  switch (state.TAG | 0) {
+    case /* Typing */0 :
+        var digits = state._0;
+        if ($$event.TAG === /* DigitPressed */0) {
+          var digit$1 = $$event._0;
+          if (typeof digit$1 === "number") {
+            if (digit$1 !== 0) {
+              if (digits.includes(".")) {
+                return state;
+              } else {
+                return {
+                        TAG: /* Typing */0,
+                        _0: digits + "."
+                      };
+              }
+            } else {
+              return {
+                      TAG: /* Typing */0,
+                      _0: digits + "0"
+                    };
+            }
+          } else {
+            return {
+                    TAG: /* Typing */0,
+                    _0: digits + String(digit$1._0)
+                  };
+          }
+        }
+        var operation = $$event._0;
+        if (operation !== 0) {
+          if (operation >= 5) {
+            return state;
+          } else {
+            return {
+                    TAG: /* Operating */1,
+                    _0: digits,
+                    _1: operation,
+                    _2: ""
+                  };
+          }
+        } else {
+          return /* Initial */0;
+        }
+    case /* Operating */1 :
+        var b = state._2;
+        var operation$1 = state._1;
+        var a = state._0;
+        if ($$event.TAG === /* DigitPressed */0) {
+          var digit$2 = $$event._0;
+          if (typeof digit$2 === "number") {
+            if (digit$2 !== 0) {
+              if (b.includes(".")) {
+                return state;
+              } else if (b !== "") {
+                return {
+                        TAG: /* Operating */1,
+                        _0: a,
+                        _1: operation$1,
+                        _2: b + "."
+                      };
+              } else {
+                return {
+                        TAG: /* Operating */1,
+                        _0: a,
+                        _1: operation$1,
+                        _2: "0."
+                      };
+              }
+            } else if (b === "") {
+              return {
+                      TAG: /* Operating */1,
+                      _0: a,
+                      _1: operation$1,
+                      _2: "0"
+                    };
+            } else {
+              return {
+                      TAG: /* Operating */1,
+                      _0: a,
+                      _1: operation$1,
+                      _2: b + "0"
+                    };
+            }
+          }
+          var value = digit$2._0;
+          if (b !== "0") {
+            return {
+                    TAG: /* Operating */1,
+                    _0: a,
+                    _1: operation$1,
+                    _2: b + String(value)
+                  };
+          } else {
+            return {
+                    TAG: /* Operating */1,
+                    _0: a,
+                    _1: operation$1,
+                    _2: String(value)
+                  };
+          }
+        }
+        var newOperation = $$event._0;
+        if (newOperation !== 0) {
+          if (newOperation >= 5) {
+            return {
+                    TAG: /* Result */2,
+                    _0: calculate(a, operation$1, b),
+                    _1: operation$1,
+                    _2: b
+                  };
+          } else {
+            return {
+                    TAG: /* Operating */1,
+                    _0: calculate(a, operation$1, b),
+                    _1: newOperation,
+                    _2: ""
+                  };
+          }
+        } else {
+          return /* Initial */0;
+        }
+    case /* Result */2 :
+        var b$1 = state._2;
+        var prevOperation = state._1;
+        var result = state._0;
+        if ($$event.TAG === /* DigitPressed */0) {
+          var digit$3 = $$event._0;
+          if (typeof digit$3 === "number") {
+            if (digit$3 !== 0) {
+              return {
+                      TAG: /* Typing */0,
+                      _0: "0."
+                    };
+            } else {
+              return /* Initial */0;
+            }
+          } else {
+            return {
+                    TAG: /* Typing */0,
+                    _0: String(digit$3._0)
+                  };
+          }
+        }
+        var newOperation$1 = $$event._0;
+        if (newOperation$1 !== 0) {
+          if (newOperation$1 >= 5) {
+            return {
+                    TAG: /* Result */2,
+                    _0: calculate(result, prevOperation, b$1),
+                    _1: prevOperation,
+                    _2: b$1
+                  };
+          } else {
+            return {
+                    TAG: /* Operating */1,
+                    _0: result,
+                    _1: newOperation$1,
+                    _2: ""
+                  };
+          }
+        } else {
+          return /* Initial */0;
+        }
+    
   }
 }
 
@@ -57,6 +222,7 @@ function use(param) {
 }
 
 export {
+  calculate ,
   handleEvent ,
   use ,
   

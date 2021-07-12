@@ -3,7 +3,14 @@ open CalculatorMachine
 let stateToString = state => {
   switch state {
   | Initial => "0"
-  | Typing(digits) => digits
+  | Typing(digits)
+  | Result(digits, _, _) => digits
+  | Operating(firstDigits, _, secondDigits) =>
+    if secondDigits != "" {
+      secondDigits
+    } else {
+      firstDigits
+    }
   }
 }
 

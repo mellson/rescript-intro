@@ -3,10 +3,21 @@
 import * as React from "react";
 
 function stateToString(state) {
-  if (state) {
-    return state._0;
-  } else {
+  if (typeof state === "number") {
     return "0";
+  }
+  switch (state.TAG | 0) {
+    case /* Operating */1 :
+        var secondDigits = state._2;
+        if (secondDigits !== "") {
+          return secondDigits;
+        } else {
+          return state._0;
+        }
+    case /* Typing */0 :
+    case /* Result */2 :
+        return state._0;
+    
   }
 }
 
