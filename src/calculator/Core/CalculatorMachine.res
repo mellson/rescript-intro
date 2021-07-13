@@ -8,20 +8,6 @@ type events =
   | DigitPressed(Digit.t)
   | OperationPressed(Operation.t)
 
-let calculate = (a, operation: Operation.t, b) => {
-  let firstFloat = a->Js.Float.fromString
-  let secondFloat = b->Js.Float.fromString
-
-  switch operation {
-  | Divide => firstFloat /. secondFloat
-  | Multiply => firstFloat *. secondFloat
-  | Add => firstFloat +. secondFloat
-  | Subtract => firstFloat -. secondFloat
-  | Clear
-  | Equals => secondFloat
-  }->Float.toString
-}
-
 let handleEvent = (state, event) =>
   switch state {
   | Initial =>
@@ -65,8 +51,8 @@ let handleEvent = (state, event) =>
     | OperationPressed(newOperation) =>
       switch newOperation {
       | Clear => Initial
-      | Equals => Result(calculate(a, operation, b), operation, b)
-      | _ => Operating(calculate(a, operation, b), newOperation, "")
+      | Equals => Result(Calculation.calculate(a, operation, b), operation, b)
+      | _ => Operating(Calculation.calculate(a, operation, b), newOperation, "")
       }
     }
   | Result(result, prevOperation, b) =>
@@ -80,7 +66,7 @@ let handleEvent = (state, event) =>
     | OperationPressed(newOperation) =>
       switch newOperation {
       | Clear => Initial
-      | Equals => Result(calculate(result, prevOperation, b), prevOperation, b)
+      | Equals => Result(Calculation.calculate(result, prevOperation, b), prevOperation, b)
       | _ => Operating(result, newOperation, "")
       }
     }

@@ -3,7 +3,7 @@
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as React from "react";
 import * as Button$RescriptIntro from "./Button.bs.js";
-import * as Operation$RescriptIntro from "./Operation.bs.js";
+import * as Operation$RescriptIntro from "../Models/Operation.bs.js";
 
 function OperationButton(Props) {
   var operation = Props.operation;

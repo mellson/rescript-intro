@@ -2,7 +2,7 @@
 
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as React from "react";
-import * as Digit$RescriptIntro from "./Digit.bs.js";
+import * as Digit$RescriptIntro from "../Models/Digit.bs.js";
 import * as Button$RescriptIntro from "./Button.bs.js";
 
 function DigitButton(Props) {
