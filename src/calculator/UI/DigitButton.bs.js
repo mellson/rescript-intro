@@ -9,9 +9,8 @@ function DigitButton(Props) {
   var digit = Props.digit;
   var send = Props.send;
   var className = digit === 0 ? "bg-white col-span-2" : "bg-white";
-  var text = Digit$RescriptIntro.toString(digit);
   return React.createElement(Button$RescriptIntro.make, {
-              text: text,
+              text: Digit$RescriptIntro.toString(digit),
               className: className,
               onClick: (function (param) {
                   return Curry._1(send, {

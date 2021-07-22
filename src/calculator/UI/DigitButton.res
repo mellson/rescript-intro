@@ -8,7 +8,5 @@ let make = (~digit, ~send) => {
   | _ => "bg-white"
   }
 
-  let text = digit->toString
-
-  <Button text onClick={_ => send(DigitPressed(digit))} className />
+  <Button text={digit->toString} onClick={_ => send(DigitPressed(digit))} className />
 }
