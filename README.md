@@ -29,4 +29,6 @@ The project includes a .vscode folder with extension suggestions and setup for r
 
 ![Example calculator](media/calculator.png)
 
+This is how the example calculator looks like.
+
 ## States
