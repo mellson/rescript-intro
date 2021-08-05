@@ -34,3 +34,36 @@ This is how the example calculator looks like. This is a basic calculator that s
 ## States
 
 The states we need for the example calculator is shown in the following diagram.
+
+```
+                                          ┌────DigitPressed
+                                          │         │
+                                          ▼         │
+┌─────────────┐                    ┌─────────────┐  │
+│             │                    │             │  │
+│   Initial   │────DigitPressed───▶│   Typing    │──┘
+│             │                    │             │
+└─────────────┘                    └─────────────┘
+       ▲                           │      ▲      │
+       │                           │      │   OperationPressed
+       ├───────────ClearPressed────┘      │      └────────┐      ┌───OperationPressed
+       │                                  │               │      │         │
+       │                                  │               ▼      ▼         │
+       │                                  │               ┌─────────────┐  │
+       │                                  │               │             │  │
+       ├───────────ClearPressed───────────┼───────────────│  Operating  │──┘
+       │                                  │               │             │
+       │                                  │               └─────────────┘
+       │                                  │               ▲      │
+       │                                  │               │      │
+       │                                  │               │   EqualsPressed
+       │                                  │               │      │
+       │                                  │     OperationPressed │      ┌───EqualsPressed
+       │                                  │               │      │      │         │
+       │                                  │               │      ▼      ▼         │
+       │                            DigitPressed          └──────┌─────────────┐  │
+       │                                  │                      │             │  │
+       │                                  └──────────────────────│   Result    │──┘
+       │                                                         │             │
+       └───────────ClearPressed──────────────────────────────────└─────────────┘
+```
