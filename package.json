@@ -1,6 +1,6 @@
 {
-  "name": "@komplio/react-app",
-  "version": "0.1.0",
+  "name": "rescript-intro",
+  "version": "0.5.0",
   "scripts": {
     "dev": "vite",
     "start": "run-p dev re:start",

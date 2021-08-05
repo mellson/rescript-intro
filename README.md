@@ -17,13 +17,15 @@ The technologies used in this project:
 
 The project includes a .vscode folder with extension suggestions and setup for running in vscode.
 
-1. Open this repo in vscode and install the suggested extension.
+1. Install the dependencies by running `yarn`.
 
-2. Open a `.res` file, for instance `App.res` and start the build which should be suggested by the popup in the bottom right corner.
+2. Open this repo in vscode and install the suggested extension.
 
-3. Start Vite by running `yarn dev` in the folder.
+3. Open a `.res` file, for instance `App.res` and start the build which should be suggested by the popup in the bottom right corner.
 
-4. Open http://localhost:3000 and you should be up and running.
+4. Start Vite by running `yarn dev`.
+
+5. Open http://localhost:3000 and you should be up and running.
 
 # Building the calculator
 
