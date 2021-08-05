@@ -69,3 +69,7 @@ The states we need for the example calculator is shown in the following diagram.
        │                                                         │             │
        └───────────ClearPressed──────────────────────────────────└─────────────┘
 ```
+
+## Great to know
+
+You can find a really helpful online ReScript community at the official [ReScript forum](https://forum.rescript-lang.org/).
