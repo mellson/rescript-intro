@@ -29,6 +29,8 @@ The project includes a .vscode folder with extension suggestions and setup for r
 
 ![Example calculator](media/calculator.png)
 
-This is how the example calculator looks like.
+This is how the example calculator looks like. This is a basic calculator that supports addition, subtraction, multiplication and division. To support these operations, the calculator is built around a simple state machine. There's a very basic state machine implementation in the `src/Machine.res` file. This allows you to create an instance of the state machine and use it to create the calculator.
 
 ## States
+
+The states we need for the example calculator is shown in the following diagram.
