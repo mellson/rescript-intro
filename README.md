@@ -19,7 +19,7 @@ The project includes a .vscode folder with extension suggestions and setup for r
 
 1. Install the dependencies by running `yarn`.
 
-2. Open this repo in vscode and install the suggested extension.
+2. Open this repo in vscode and install the suggested extension. The theme used in the meetup is [GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme) in the dark variant.
 
 3. Open a `.res` file, for instance `App.res` and start the build which should be suggested by the popup in the bottom right corner.
 
