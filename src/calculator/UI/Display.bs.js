@@ -9,10 +9,10 @@ function stateToString(state) {
   switch (state.TAG | 0) {
     case /* Operating */1 :
         var secondDigits = state._2;
-        if (secondDigits !== "") {
-          return secondDigits;
-        } else {
+        if (secondDigits === "") {
           return state._0;
+        } else {
+          return secondDigits;
         }
     case /* Typing */0 :
     case /* Result */2 :

@@ -6,10 +6,10 @@ let stateToString = state => {
   | Typing(digits)
   | Result(digits, _, _) => digits
   | Operating(firstDigits, _, secondDigits) =>
-    if secondDigits != "" {
-      secondDigits
-    } else {
+    if secondDigits == "" {
       firstDigits
+    } else {
+      secondDigits
     }
   }
 }
