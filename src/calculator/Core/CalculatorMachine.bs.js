@@ -90,20 +90,15 @@ function handleOperating(state, $$event, a, operation, b) {
                   _2: "0."
                 };
         }
-      } else if (b === "") {
-        return {
-                TAG: /* Operating */1,
-                _0: a,
-                _1: operation,
-                _2: "0"
-              };
-      } else {
+      } else if (b !== "0") {
         return {
                 TAG: /* Operating */1,
                 _0: a,
                 _1: operation,
                 _2: b + "0"
               };
+      } else {
+        return state;
       }
     }
     var value = digit._0;

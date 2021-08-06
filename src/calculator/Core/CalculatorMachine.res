@@ -40,8 +40,8 @@ let handleOperating = (state, event, a, operation, b) =>
   switch event {
   | DigitPressed(digit) =>
     switch digit {
-    | Zero if b == "" => Operating(a, operation, "0")
-    | Zero => Operating(a, operation, b ++ "0")
+    | Zero if b != "0" => Operating(a, operation, b ++ "0")
+    | Zero => state
     | Digit(value) if b != "0" => Operating(a, operation, b ++ value->Int.toString)
     | Digit(value) => Operating(a, operation, value->Int.toString)
     | Dot if b->Js.String2.includes(".") => state
