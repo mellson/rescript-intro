@@ -4,7 +4,7 @@ type state =
   | Operating(string, Operation.t, string)
   | Result(string, Operation.t, string)
 
-type events =
+type event =
   | DigitPressed(Digit.t)
   | OperationPressed(Operation.t)
 
