@@ -4,11 +4,11 @@ import * as React from "react";
 
 function Button(Props) {
   var text = Props.text;
-  var classNameOpt = Props.className;
+  var extraClassesOpt = Props.extraClasses;
   var onClick = Props.onClick;
-  var className = classNameOpt !== undefined ? classNameOpt : "bg-white";
+  var extraClasses = extraClassesOpt !== undefined ? extraClassesOpt : "bg-white";
   return React.createElement("button", {
-              className: "p-4 text-2xl font-bold shadow-sm active:scale-95 active:-rotate-1 hover:shadow-xl duration-75 hover:scale-105 hover:rotate-1 rounded text-center " + className,
+              className: "p-4 text-2xl font-bold shadow-sm active:scale-95 active:-rotate-1 hover:shadow-xl duration-75 hover:scale-105 hover:rotate-1 rounded text-center " + extraClasses,
               onClick: onClick
             }, text);
 }

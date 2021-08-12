@@ -8,25 +8,25 @@ import * as Operation$RescriptIntro from "../Models/Operation.bs.js";
 function OperationButton(Props) {
   var operation = Props.operation;
   var send = Props.send;
-  var className;
+  var extraClasses;
   switch (operation) {
     case /* Clear */0 :
-        className = "bg-yellow-500";
+        extraClasses = "bg-yellow-500";
         break;
     case /* Divide */1 :
     case /* Multiply */2 :
     case /* Subtract */4 :
-        className = "bg-yellow-200";
+        extraClasses = "bg-yellow-200";
         break;
     case /* Add */3 :
     case /* Equals */5 :
-        className = "bg-yellow-200 row-span-2";
+        extraClasses = "bg-yellow-200 row-span-2";
         break;
     
   }
   return React.createElement(Button$RescriptIntro.make, {
               text: Operation$RescriptIntro.toString(operation),
-              className: className,
+              extraClasses: extraClasses,
               onClick: (function (param) {
                   return Curry._1(send, {
                               TAG: /* OperationPressed */1,

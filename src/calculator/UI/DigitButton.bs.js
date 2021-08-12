@@ -8,10 +8,10 @@ import * as Button$RescriptIntro from "./Button.bs.js";
 function DigitButton(Props) {
   var digit = Props.digit;
   var send = Props.send;
-  var className = digit === 0 ? "bg-white col-span-2" : "bg-white";
+  var extraClasses = digit === 0 ? "bg-white col-span-2" : "bg-white";
   return React.createElement(Button$RescriptIntro.make, {
               text: Digit$RescriptIntro.toString(digit),
-              className: className,
+              extraClasses: extraClasses,
               onClick: (function (param) {
                   return Curry._1(send, {
                               TAG: /* DigitPressed */0,
