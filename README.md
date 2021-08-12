@@ -47,8 +47,8 @@ The states we need for the example calculator is shown in the following diagram.
 │             │                    │             │
 └─────────────┘                    └─────────────┘
        ▲                           │      ▲      │
-       │                           │      │   OperationPressed
-       ├───────────ClearPressed────┘      │      └────────┐      ┌───OperationPressed
+       │                           │      │   OperationPressed       OperationPressed
+       ├───────────ClearPressed────┘      │      └────────┐      ┌────or DigitPressed
        │                                  │               │      │         │
        │                                  │               ▼      ▼         │
        │                                  │               ┌─────────────┐  │
